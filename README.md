@@ -3,8 +3,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This is a simple web application that fetches the latest news and displayed on the screen.
-## Example 
+## Screens 
+
+### Desktop View
+
 ![Desktop Screen](screenshots/desktop.jpg)
+
+### Mobile View
 
 ![Mobile Screen](screenshots/mobile.jpg)
 ## Prerequisites
