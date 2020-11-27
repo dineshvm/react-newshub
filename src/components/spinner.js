@@ -25,7 +25,7 @@ export default function Spinner() {
     const classes = useStyles();
 
     return (
-        isSpinnerOn && <div className={classes.loaderContainer}>
+        isSpinnerOn && <div data-testid="spinner" className={classes.loaderContainer}>
             <CircularProgress color={'primary'} size={30} thickness={4} />
         </div>
     )

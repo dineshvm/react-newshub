@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
@@ -47,6 +48,12 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+/**
+ * Sidebar of the application
+ * @param  {object} props component props
+ * @param  {object} props.appState consist of selected category name
+ * @param  {boolean} props.mobileOpen state of the sidebar for mobile view
+ */
 function Sidebar(props) {
     const { appState, menuOpen } = props;
     const classes = useStyles();
@@ -67,10 +74,10 @@ function Sidebar(props) {
 
     const drawer = (
         <>
-            <List className={classes.categoryList}>
+            <List data-testid="appcategorylist" className={classes.categoryList}>
                 {
                     NEWS_CATEGORIES.map((item) => (
-                        <ListItem button
+                        <ListItem button data-testid="sidebarlistitem"
                             key={item.key}
                             onClick={() => handleCategoryChange(item.key)}
                             className={clsx(classes.listItem, item.key === appState.category && classes.selectedItem)}
@@ -90,6 +97,7 @@ function Sidebar(props) {
             <nav className={classes.drawer} aria-label="news categories">
                 <Hidden smUp implementation="css">
                     <Drawer
+                        data-testid="mobilesidebar"
                         container={window && window.document.body}
                         variant="temporary"
                         anchor='left'
@@ -99,7 +107,7 @@ function Sidebar(props) {
                             paper: classes.drawerPaper,
                         }}
                         ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
+                            keepMounted: true,
                         }}
                     >
                         {drawer}
@@ -120,12 +128,15 @@ function Sidebar(props) {
                         {drawer}
                     </Drawer>
                 </Hidden>
-
-
-
             </nav>
         </div>
     );
+}
+
+Sidebar.propTypes = {
+    appState: PropTypes.object,
+    onToggle: PropTypes.func,
+    onSearch: PropTypes.func
 }
 
 export default Sidebar;
