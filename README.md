@@ -17,6 +17,29 @@ This is a simple web application that fetches the latest news and displayed on t
 Make sure you have setup of the following project on your development machine:
 * Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. 
 * News Api Backend Application - [express-newsapi](https://github.com/dineshvm/express-newsapi). Follow the readme instructions and have the app up and running in the machine.
+## Installation
+
+### Clone the repo!
+
+```sh
+git clone git@github.com:dineshvm/react-newshub.git
+```
+
+### Install dependencies
+
+```sh
+npm i
+```
+> OR `yarn`
+
+### Start the App
+
+```sh
+npm start
+```
+Open your browser and check http://localhost:3000
+
+
 ## Available Scripts
 
 In the project directory, you can run:
